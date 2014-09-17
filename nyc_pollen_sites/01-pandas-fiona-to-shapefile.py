@@ -1,4 +1,6 @@
 import pandas as pd
+from shapely.geometry import Point, mapping
+from fiona import collection
 
 io1 = '/Users/danielmsheehan/Dropbox/GIS/Data/Municipal/USA/New_York/New_York_City/Pollen/NYCPS_lat_long_2013.csv'
 io2 = '/Users/danielmsheehan/Dropbox/GIS/Data/Municipal/USA/New_York/New_York_City/Pollen/NYCPS_lat_long_2013_w.csv'
@@ -6,9 +8,6 @@ io2 = '/Users/danielmsheehan/Dropbox/GIS/Data/Municipal/USA/New_York/New_York_Ci
 df = pd.read_csv(io1)
 df.to_csv(io2, index=False)
 
-from shapely.geometry import Point, mapping
-from fiona import collection
- 
 schema = { 'geometry': 'Point', 'properties': { 'SITEID': 'str' } }#{ 'city': 'str', 'zip': 'str' } }
 #url = df #"http://goo.gl/WFylXY"
 #data = pd.read_csv(url)
